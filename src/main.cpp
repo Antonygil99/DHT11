@@ -46,8 +46,8 @@ void loop() {
 	float h = dht.readHumidity();//read humidity
  	float t = dht.readTemperature();// Read temperature as Celsius (the default)
 
-	String str_h= String(h);
-	String str_tem =String(t);
+	String str_h = String(h);
+	String str_tem = String(t);
 	
   String serial_str_h = "Humidity: " + str_h;
   String serial_str_tem = "temperature: " + str_tem;
