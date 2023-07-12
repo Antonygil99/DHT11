@@ -4,9 +4,6 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_GFX.h>
 
-
-//int myFunction(int, int);
-
 #define DHTTYPE DHT11
 //************** OLED ******************
 //************* SCREEN******************
@@ -36,14 +33,12 @@ void setup() {
   display.display();
 
   dht.begin();
-  // put your setup code here, to run once:
-  //int result = myFunction(2, 3);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
-	float h = dht.readHumidity();//read humidity
+
+  float h = dht.readHumidity();//read humidity
  	float t = dht.readTemperature();// Read temperature as Celsius (the default)
 
 	String str_h = String(h);
@@ -51,8 +46,8 @@ void loop() {
 	
   String serial_str_h = "Humidity: " + str_h;
   String serial_str_tem = "temperature: " + str_tem;
+  
   //Monitoreo Serial
- 
 	Serial.println(serial_str_h);
 	Serial.println(serial_str_tem);
 
@@ -67,21 +62,12 @@ void ver_pantalla(String str_h, String str_tem) {
   //Monitoreo por pantalla
 	display.setTextSize(2);
   display.setTextColor(SSD1306_WHITE);
-
   display.setCursor(25,15);
   display.print(str_h + " %");
   display.display();
   display.setCursor(25,35);
   display.print(str_tem + " C");
-
   display.display();
   delay(800);//clear each 800ms
 	display.clearDisplay();
 }
-
-
-
-
-// put function definitions here:
-//int myFunction(int x, int y) {
- // return x + y;
